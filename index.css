@@ -1,6 +1,16 @@
 * {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  transition: all 500ms ease;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+:root {
+  /* colors */
+  --snow: #f8f8ff;
+  --fadedWhite: #f8f8ff76;
 }
 
 body {
@@ -11,10 +21,230 @@ nav {
   position: fixed;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 20px 60px;
   box-shadow: 1px 4px 4px -4px black;
   z-index: 10;
   width: 100%;
-  background: white;
+  background: black;
   top: 0;
+  color: var(--snow);
+}
+
+.home {
+  color: var(--snow) !important;
+}
+
+.links {
+  /* border: 1px solid blue; */
+  display: flex;
+  padding: 5px 10px;
+  gap: 70px;
+}
+
+nav a {
+  color: var(--fadedWhite);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--snow);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 10px;
+}
+
+/* End of navigation */
+
+.welcome {
+  padding: 80px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.label {
+  margin-bottom: 20px;
+}
+
+.steps {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.stepCard {
+  height: 450px;
+  width: 350px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.stepCard img {
+  width: 100%;
+  height: 60%;
+  margin-bottom: 40px;
+}
+
+.circleNumber {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%);
+  /* transform: translateX(-50%); */
+  /* padding: 15px 20px; */
+  width: 65px;
+  height: 65px;
+  background-color: white;
+  border-radius: 50%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circleNumber p {
+  background-color: rgb(209, 204, 204);
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  overflow: hidden;
+}
+
+/* about the studio section */
+.aboutTheStudio {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.aboutTheStudio p {
+  font-size: 35px;
+  width: 58%;
+  font-weight: lighter;
+}
+
+.aboutTheStudio a {
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 15px 25px;
+  font-size: 15px;
+  background-color: black;
+  color: var(--snow);
+  letter-spacing: 2px;
+}
+
+.aboutTheStudio a,
+.viewProjects a:hover {
+  letter-spacing: 5px;
+}
+
+/* featured works section */
+
+.featuredWorks {
+  position: relative;
+  max-width: 95%;
+  margin: auto;
+  padding: 20px;
+}
+
+.work {
+  height: 550px;
+  width: 100%;
+  display: flex;
+  box-shadow: 4px 4px 6px;
+  position: relative;
+  margin-top: 30px;
+  border-radius: 14px;
+  /* overflow: hidden; */
+}
+
+.work img {
+  width: 50%;
+}
+
+.workHeader {
+  position: absolute;
+  padding: 5px 30px;
+  color: var(--snow);
+  background-color: black;
+  top: 10%;
+  font-size: 30px;
+}
+
+.headRight {
+  right: 10%;
+  padding-left: 250px;
+}
+
+.headLeft {
+  left: 10%;
+  padding-right: 250px;
+}
+
+.workDetails {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.workDetails div {
+  width: 80%;
+}
+
+.workDetails small {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.viewProjects {
+  height: 200px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.viewProjects p {
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.viewProjects a {
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 15px 25px;
+  font-size: 15px;
+  background-color: black;
+  color: var(--snow);
+  letter-spacing: 2px;
+  border-radius: 5px;
+}
+
+/* Unique approach */
+.approach {
+  max-width: 95%;
+  margin: auto;
+  border: 1px solid black;
+  padding: 80px;
 }
