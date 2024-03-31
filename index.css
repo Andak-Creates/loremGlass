@@ -5,6 +5,9 @@
   transition: all 500ms ease;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 :root {
@@ -147,9 +150,12 @@ nav a:hover {
   background-color: black;
   color: var(--snow);
   letter-spacing: 2px;
+  border-radius: 5px;
 }
 
-.aboutTheStudio a,
+.aboutTheStudio a:hover {
+  letter-spacing: 5px;
+}
 .viewProjects a:hover {
   letter-spacing: 5px;
 }
@@ -158,20 +164,28 @@ nav a:hover {
 
 .featuredWorks {
   position: relative;
-  max-width: 95%;
+  max-width: 100%;
   margin: auto;
   padding: 20px;
+  background-image: url("https://uploads-ssl.webflow.com/60b280b08e7b7a3f70e3e16d/60b282df84c6fccb1bdc2d62_tile-texture.jpg");
+}
+
+.featuredWorks h2 {
+  font-size: 35px;
+  letter-spacing: 2px;
 }
 
 .work {
   height: 550px;
-  width: 100%;
+  width: 95%;
+  margin: auto;
   display: flex;
   box-shadow: 4px 4px 6px;
   position: relative;
   margin-top: 30px;
   border-radius: 14px;
   /* overflow: hidden; */
+  background-color: white;
 }
 
 .work img {
@@ -232,7 +246,6 @@ nav a:hover {
 
 .viewProjects a {
   text-decoration: none;
-  border: 1px solid black;
   padding: 15px 25px;
   font-size: 15px;
   background-color: black;
@@ -245,6 +258,128 @@ nav a:hover {
 .approach {
   max-width: 95%;
   margin: auto;
+  padding: 80px 40px;
+}
+
+.approach h2 {
+  font-size: 35px;
+  letter-spacing: 2px;
+}
+
+.associate {
+  display: flex;
+  width: 100%;
+  position: relative;
+  height: 400px;
+  margin-top: 35px;
+}
+
+.associate img {
+  width: 50%;
+  border-radius: 13px;
+}
+
+.associateDetails {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 20px;
+  padding-top: 40px;
+  /* padding-left: 40px; */
+}
+
+.associateDetails * {
+  width: 78%;
+}
+
+.associateDetails h3 {
+  font-size: 24px;
+}
+
+.associateDetails a {
+  text-decoration: none;
+  padding: 15px 25px;
+  font-size: 15px;
+  background-color: black;
+  color: var(--snow);
+  letter-spacing: 2px;
+  border-radius: 5px;
+  width: auto !important;
+  text-align: center;
+}
+
+.associateDetails a:hover {
+  letter-spacing: 5px;
+}
+
+/* Footer Section */
+.footer {
   border: 1px solid black;
-  padding: 80px;
+}
+
+.vision {
+  height: 400px;
+  color: var(--snow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-size: auto !important;
+  background-image: url("https://uploads-ssl.webflow.com/60b280b08e7b7a3f70e3e16d/60b288771c7edd54b4f2ae35_dark-geometric-pattern.jpg");
+}
+
+.vision h2 {
+  font-size: 38px;
+  letter-spacing: 4px;
+}
+
+.vision a {
+  text-decoration: none;
+  padding: 15px 25px;
+  font-size: 15px;
+  color: var(--snow);
+  letter-spacing: 2px;
+  border-radius: 5px;
+  width: auto !important;
+  text-align: center;
+  margin-top: 20px;
+  background-color: black;
+}
+
+.vision a:hover {
+  letter-spacing: 5px;
+}
+
+.mainFooter {
+  position: relative;
+  height: 350px;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 45px;
+}
+
+.PTC {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  /* gap: 30px; */
+}
+
+.footLinks {
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.footLinks a {
+  color: var(--snow) !important ;
+  text-decoration: none;
 }
