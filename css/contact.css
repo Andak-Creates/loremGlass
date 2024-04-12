@@ -100,7 +100,6 @@ nav a:hover {
 /* Email section */
 
 .emailSection {
-  border: 1px solid black;
   padding: 80px 40px;
   width: 100%;
   height: auto;
@@ -124,6 +123,8 @@ form {
   padding: 40px 50px;
   border-radius: 15px;
   margin: 30px 0;
+  border-top: 8px solid black;
+  border-bottom: 8px solid black;
 }
 
 small {
@@ -186,14 +187,18 @@ form button {
   height: auto;
   text-align: center;
   padding: 80px 50px;
-  border: 1px solid black;
   position: relative;
+  background-image: url("https://uploads-ssl.webflow.com/60b280b08e7b7a3f70e3e16d/60b282df0e0fd836392a0c89_light-geometric-pattern.jpg");
+}
+
+.contactDetails > h2 {
+  font-size: 40px;
+  letter-spacing: 4px;
 }
 
 .compHolder {
   width: 100%;
   height: 350px;
-  border: 1px solid blue;
   margin-top: 20px;
   position: relative;
   display: flex;
@@ -205,7 +210,37 @@ form button {
 
 .comp {
   padding: 40px;
-  border: 1px solid pink;
+  width: 30%;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  border-top: 5px solid black;
+  /* border-top: 5px solid black; */
+}
+
+.address {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* justify-content: center; */
+}
+
+/* .address p */
+
+.icons {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 30px;
+}
+
+.icons i {
+  font-size: 40px;
 }
 
 /* Footer Section */
@@ -259,4 +294,78 @@ form button {
 .footLinks a {
   color: var(--snow) !important ;
   text-decoration: none;
+}
+
+/* Media Query */
+@media (max-width: 650px) {
+  /* Nav section */
+  nav {
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  nav h3 {
+    font-size: 20px;
+  }
+  .links,
+  .socialLinks {
+    display: none;
+  }
+  /* End of Nav */
+
+  .topSection {
+    height: 100vh;
+    padding: 240px 30px;
+    & h1 {
+      font-size: 60px;
+    }
+    & p {
+      font-size: 20px;
+    }
+  }
+
+  /* Email Section */
+  .emailSection {
+    padding: 50px 30px;
+    & h2,
+    p {
+      padding-left: 0;
+    }
+  }
+
+  form {
+    padding: 40px 20px;
+
+    & button {
+      width: auto;
+    }
+  }
+
+  .labelHolder {
+    flex-direction: column;
+    gap: 0;
+
+    & label {
+      width: 100%;
+    }
+  }
+
+  /* Contact Details */
+  .contactDetails {
+    & h2 {
+      font-size: 25px;
+      letter-spacing: 2px;
+    }
+  }
+
+  .compHolder {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+
+    & .comp {
+      border: 1px solid black;
+      width: 100%;
+    }
+  }
 }

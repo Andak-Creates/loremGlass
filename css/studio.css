@@ -8,6 +8,7 @@
   box-sizing: border-box;
   background-repeat: no-repeat;
   background-size: cover;
+  object-fit: cover;
 }
 
 :root {
@@ -18,6 +19,7 @@
 
 body {
   position: relative;
+  background-color: whitesmoke;
 }
 
 nav {
@@ -58,8 +60,243 @@ nav a:hover {
   display: flex;
   gap: 10px;
 }
-
 /* End of navigation */
-.body {
-  padding-top: 90px;
+
+.heroSection {
+  height: 560px;
+  position: relative;
+  overflow: hidden;
+  padding: 150px 80px;
+
+  & img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(80%);
+  }
+
+  & h1 {
+    font-size: 120px;
+    color: var(--snow);
+    letter-spacing: 5px;
+  }
+  & p {
+    font-size: 25px;
+    color: var(--snow);
+    width: 50%;
+  }
+}
+
+/* End of Hero setion */
+
+/* About us section */
+
+.aboutUs {
+  height: auto;
+  padding: 50px 40px;
+  margin-top: 50px;
+}
+
+.aboutCard {
+  height: 480px;
+  overflow: hidden;
+  display: flex;
+  background-color: white;
+  border-radius: 18px;
+  margin: 30px 0;
+
+  & > * {
+    width: 50%;
+  }
+
+  & .cardDetails {
+    padding: 70px 60px;
+
+    & p {
+      margin: 25px 0;
+    }
+    & a {
+      color: white;
+      background-color: black;
+      padding: 10px 30px;
+      text-decoration: none;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      font-size: 12px;
+    }
+
+    & a:hover {
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.rightCard {
+  flex-direction: row-reverse;
+}
+
+/* our services section */
+.ourServices {
+  text-align: center;
+
+  & .serviceHolder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 40px;
+    text-align: left;
+
+    & .service {
+      height: 300px;
+      width: 300px;
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 30px;
+      cursor: pointer;
+
+      & .iconHolder {
+        border: 1px solid black;
+        height: 60px;
+        width: 60px;
+        border-radius: 50px;
+        margin: 0 0 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      & p {
+        margin-top: 8px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+/* Footer Section */
+.footer {
+  border: 1px solid black;
+}
+
+.vision {
+  height: 400px;
+  color: var(--snow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-size: auto !important;
+  background-image: url("https://uploads-ssl.webflow.com/60b280b08e7b7a3f70e3e16d/60b288771c7edd54b4f2ae35_dark-geometric-pattern.jpg");
+}
+
+.vision h2 {
+  font-size: 38px;
+  letter-spacing: 4px;
+}
+
+.vision a {
+  text-decoration: none;
+  padding: 15px 25px;
+  font-size: 15px;
+  color: var(--snow);
+  letter-spacing: 2px;
+  border-radius: 5px;
+  width: auto !important;
+  text-align: center;
+  margin-top: 20px;
+  background-color: black;
+}
+
+.vision a:hover {
+  letter-spacing: 5px;
+}
+
+.mainFooter {
+  position: relative;
+  height: 350px;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 45px;
+}
+
+.PTC {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  /* gap: 30px; */
+}
+
+.footLinks {
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.footLinks a {
+  color: var(--snow) !important ;
+  text-decoration: none;
+}
+
+/* Media Query */
+@media (max-width: 650px) {
+  nav {
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  nav h3 {
+    font-size: 20px;
+  }
+  .links,
+  .socialLinks {
+    display: none;
+  }
+  /* End of Nav */
+
+  .heroSection {
+    height: 100vh;
+    padding: 260px 40px;
+
+    & h1 {
+      font-size: 60px;
+    }
+
+    & p {
+      width: 85%;
+      font-size: 20px;
+    }
+  }
+
+  .aboutUs {
+    padding: 50px 35px;
+  }
+
+  .aboutCard {
+    border: 1px solid black;
+    flex-direction: column;
+    height: auto;
+
+    & img {
+      height: 250px;
+    }
+
+    & > * {
+      width: 100%;
+    }
+
+    & .cardDetails {
+      padding: 20px;
+    }
+  }
 }

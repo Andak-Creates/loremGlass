@@ -34,10 +34,6 @@ nav {
   color: var(--snow);
 }
 
-.portfolio {
-  color: var(--snow) !important;
-}
-
 .links {
   /* border: 1px solid blue; */
   display: flex;
@@ -59,8 +55,194 @@ nav a:hover {
   gap: 10px;
 }
 
+.portfolio {
+  color: var(--snow) !important;
+}
+
 /* End of navigation */
 
-.body {
-  padding-top: 90px;
+/* Hero section */
+.heroSection {
+  height: 560px;
+  position: relative;
+  overflow: hidden;
+  padding: 150px 80px;
+  color: var(--snow);
+
+  & img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(75%);
+  }
+  & h1 {
+    font-size: 120px;
+    letter-spacing: 5px;
+  }
+
+  & p {
+    font-size: 23px;
+    width: 45%;
+  }
+}
+
+.works {
+  text-align: center;
+  max-width: 95%;
+  margin: 100px auto;
+
+  & h2 {
+    letter-spacing: 3px;
+  }
+
+  & .projectHolder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+
+    & .myProjects {
+      width: 250px;
+      height: 300px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      & .projectDesc {
+        color: var(--snow);
+        font-size: 20px;
+        height: auto;
+      }
+
+      & img:hover {
+        z-index: -1;
+        filter: brightness(50%);
+      }
+    }
+  }
+}
+
+/* Footer Section */
+.footer {
+  border: 1px solid black;
+}
+
+.vision {
+  height: 400px;
+  color: var(--snow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-size: auto !important;
+  background-image: url("https://uploads-ssl.webflow.com/60b280b08e7b7a3f70e3e16d/60b288771c7edd54b4f2ae35_dark-geometric-pattern.jpg");
+}
+
+.vision h2 {
+  font-size: 38px;
+  letter-spacing: 4px;
+}
+
+.vision a {
+  text-decoration: none;
+  padding: 15px 25px;
+  font-size: 15px;
+  color: var(--snow);
+  letter-spacing: 2px;
+  border-radius: 5px;
+  width: auto !important;
+  text-align: center;
+  margin-top: 20px;
+  background-color: black;
+}
+
+.vision a:hover {
+  letter-spacing: 5px;
+}
+
+.mainFooter {
+  position: relative;
+  height: 350px;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 45px;
+}
+
+.PTC {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  /* gap: 30px; */
+}
+
+.footLinks {
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.footLinks a {
+  color: var(--snow) !important ;
+  text-decoration: none;
+}
+
+/* Media Query */
+@media (max-width: 650px) {
+  nav {
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  nav h3 {
+    font-size: 20px;
+  }
+  .links,
+  .socialLinks {
+    display: none;
+  }
+  /* End of Nav */
+
+  /* Hero section */
+  .heroSection {
+    height: 100vh;
+    padding: 280px 40px;
+
+    & h1 {
+      font-size: 50px;
+      letter-spacing: normal;
+    }
+
+    & p {
+      width: 85%;
+      font-size: 18px;
+    }
+  }
+
+  .projectHolder {
+    position: relative;
+
+    & .myProjects {
+      width: 100% !important;
+    }
+  }
 }

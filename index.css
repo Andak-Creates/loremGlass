@@ -93,6 +93,7 @@ nav a:hover {
   width: 100%;
   height: 60%;
   margin-bottom: 40px;
+  object-fit: cover;
 }
 
 .circleNumber {
@@ -166,7 +167,7 @@ nav a:hover {
   position: relative;
   max-width: 100%;
   margin: auto;
-  padding: 20px;
+  padding: 20px 60px;
   background-image: url("https://uploads-ssl.webflow.com/60b280b08e7b7a3f70e3e16d/60b282df84c6fccb1bdc2d62_tile-texture.jpg");
 }
 
@@ -177,7 +178,7 @@ nav a:hover {
 
 .work {
   height: 550px;
-  width: 95%;
+  width: 100%;
   margin: auto;
   display: flex;
   box-shadow: 4px 4px 6px;
@@ -193,23 +194,26 @@ nav a:hover {
 }
 
 .workHeader {
+  /* width: auto !important; */
   position: absolute;
-  padding: 5px 30px;
+  padding: 15px 100px;
   color: var(--snow);
   background-color: black;
-  top: 10%;
-  font-size: 30px;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px !important;
 }
 
-.headRight {
+/* .headRight {
   right: 10%;
   padding-left: 250px;
-}
+} */
 
-.headLeft {
+/* .headLeft {
   left: 10%;
   padding-right: 250px;
-}
+} */
 
 .workDetails {
   width: 50%;
@@ -382,4 +386,134 @@ nav a:hover {
 .footLinks a {
   color: var(--snow) !important ;
   text-decoration: none;
+}
+
+/* Media Query */
+
+@media (max-width: 650px) {
+  nav {
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  nav h3 {
+    font-size: 20px;
+  }
+  .links,
+  .socialLinks {
+    display: none;
+  }
+  /* End of Nav */
+
+  /* Welcome section */
+
+  .welcome {
+    padding: 40px;
+  }
+  .label {
+    font-size: 15px;
+  }
+
+  .welcome h1 {
+    font-size: 25px;
+  }
+
+  .steps {
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .stepCard {
+    width: 100%;
+  }
+
+  .stepCard > p {
+    font-size: 18px;
+  }
+  /* End of welcome */
+
+  /* About the studio section */
+  .aboutTheStudio {
+    height: auto;
+    margin: 40px auto;
+  }
+
+  .aboutTheStudio p {
+    font-size: 30px;
+    width: 100%;
+  }
+
+  /* End of studio section */
+
+  /* Featured work section */
+  .work {
+    width: 100%;
+    height: auto !important;
+    padding: 0 0 30px;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    flex-direction: column;
+    gap: 20px;
+
+    & img {
+      width: 100%;
+      height: 50%;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(70%);
+    }
+
+    .workHeader {
+      display: none;
+    }
+
+    .workDetails {
+      font-size: 10px;
+      width: 100%;
+      height: auto;
+      gap: 10px;
+      border-radius: 20px;
+      /* box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset; */
+      backdrop-filter: blur(2px);
+      color: black;
+
+      & div > p {
+        font-size: 15px;
+      }
+    }
+  }
+
+  /* Unique Approach section */
+  .approach {
+    max-width: 100%;
+    padding: 80px 20px;
+
+    & .associate {
+      height: 600px;
+
+      & img {
+        width: 100%;
+      }
+    }
+
+    .associateDetails {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      background: rgba(233, 181, 181, 0.489);
+      left: 50%;
+      top: 30px;
+      transform: translateX(-50%);
+      padding: 10px;
+      backdrop-filter: blur(20px);
+
+      & a {
+        font-size: 13px;
+      }
+    }
+  }
+  .featuredWorks {
+    padding: 20px 40px;
+  }
 }
