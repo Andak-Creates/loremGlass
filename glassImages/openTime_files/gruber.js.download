@@ -1,0 +1,697 @@
+// INTRO FADEOUT
+var ref = document.referrer;
+if (ref.match(/^https?:\/\/([^\/]+\.)?gruberbrot\.at(\/|$)/i)) {
+	if ($('.home').length) {
+		introAnimation();
+		//console.log('ref ist intern');
+	}
+} else {
+	$(window).load(function(){
+		if ($('.home').length) {
+			setTimeout(function () {
+				introAnimation();
+				//console.log('ref ist extern');
+			}, 3000);
+		}
+	});
+}
+
+$(window).load(function(){
+	if ($('.home').length) {
+		$("html,body").scrollTop(0);
+		$('.laden').attr('src', $('.laden').attr('src'));
+	}
+
+	// TIPPS SCHREIBEN
+	if ($('.schreiben2').length) {
+		$('.schreiben2 span').typed({
+	        strings: ["Pssssst...<br>nicht<br>weitersagen.", "Oder<br>vielleicht<br>doch?"],
+	        typeSpeed: 50,
+	        backDelay: 200,
+	        startDelay: 500,
+	        backSpeed: 10,
+	    });
+    }
+});
+
+//Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container) {
+$(document).ready(function() {
+	// LADEN
+	if ($('.home').length) {
+		//$('.home').addClass('overflow-hidden');
+		//$('header').addClass('ausgeblendet');
+	}
+
+	// BG BILD
+	$('section, div').each(function() {
+		if ($(this).attr('data-background')) {
+			$(this).css('background-image', 'url(' + $(this).attr('data-background') + ')');
+		}
+	});
+
+	//PFEILE MOBILE
+	$(window).on('load resize', function () {
+		if ($(window).width() < 1024) {
+			$('.pfeile').css('height', $('.swiper-slide video').height());
+		}
+	});
+
+	$(function () {
+		intro();
+
+		$(window).on('resize', function () {
+	    	intro();
+	    	if ($('.home').length) {
+	    		if ($(window).width() <= 1024) {
+					skrollr.init().destroy();
+	    		}
+	    	}
+		});
+	});
+
+	function intro(){
+		if ($(window).width() > 1024) {
+			if ($('.home').length) {
+				if (/MSIE 9/i.test(navigator.userAgent) || /rv:11.0/i.test(navigator.userAgent) || !!navigator.userAgent.match(/Trident.*rv\:11\./)) { } else {
+					var s = skrollr.init({forceHeight: false});
+				}
+			}
+		}
+	}
+
+	// INTRO VIDEO
+	if ($('.home').length) {
+		if ($('.no-touch').length) {
+			function scrollVideo1() {
+				var video = $('#v0').get(0),
+			    videoLength = video.duration,
+			    scrollPosition = $(document).scrollTop();
+
+			    videoCalc = (scrollPosition / ($(document).height() - $(window).height())) * (videoLength * 1.75);
+
+				video.currentTime = videoCalc;
+			    if (videoCalc > videoLength - 0.08) {
+					video.currentTime = videoLength - 0.1;
+				}
+
+				//console.log(video.currentTime);
+			}
+			function scrollVideo2() {
+				var video = $('#v1').get(0),
+			    videoLength = video.duration,
+			    scrollPosition = $(document).scrollTop();
+
+			    videoCalc = (scrollPosition / ($(document).height() - $(window).height())) * (videoLength * 1.75);
+
+				video.currentTime = videoCalc;
+			    if (videoCalc > videoLength - 0.08) {
+					video.currentTime = videoLength - 0.1;
+				}
+			}
+			function scrollVideo3() {
+				var video = $('#v2').get(0),
+			    videoLength = video.duration,
+			    scrollPosition = $(document).scrollTop();
+
+			    videoCalc = (scrollPosition / ($(document).height() - $(window).height())) * (videoLength * 1.75);
+
+				video.currentTime = videoCalc;
+			    if (videoCalc > videoLength - 0.08) {
+					video.currentTime = videoLength - 0.1;
+				}
+			}
+
+			$(window).on('scroll', function(e) {
+				if (mySwiper.activeIndex == 0) {
+					scrollVideo1();
+				}
+				if (mySwiper.activeIndex == 1) {
+					scrollVideo2();
+				}
+				if (mySwiper.activeIndex == 2) {
+					scrollVideo3();
+				}
+			});
+		}
+		else {
+			var frameNumber = 0,
+		    playbackConst = 30,
+		    setHeight = document.getElementById("set-height") / 2,
+		    vid = document.getElementById('v0');
+		    vid2 = document.getElementById('v1');
+		    vid3 = document.getElementById('v2');
+		    // var vid = $('#v0')[0]; // jquery option
+
+			vid.addEventListener('loadedmetadata', function() {
+				setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+			});
+			vid2.addEventListener('loadedmetadata', function() {
+				setHeight.style.height = Math.floor(vid2.duration) * playbackConst + "px";
+			});
+			vid3.addEventListener('loadedmetadata', function() {
+				setHeight.style.height = Math.floor(vid3.duration) * playbackConst + "px";
+			});
+
+		    $('#v0')[0].play();
+		    $('#v1')[0].play();
+		    $('#v2')[0].play();
+
+			function scrollPlay(){
+				var frameNumber  = window.pageYOffset/playbackConst;
+				vid.currentTime  = frameNumber;
+				vid2.currentTime  = frameNumber;
+				vid3.currentTime  = frameNumber;
+				window.requestAnimationFrame(scrollPlay);
+			}
+
+			window.requestAnimationFrame(scrollPlay);
+		}
+	}
+
+	// SWIPER
+	var mySwiper = new Swiper ('.swiper-container', {
+		loop: false,
+		speed: 700,
+		parallax: true,
+		nextButton: '.pfeile .next',
+		prevButton: '.pfeile .prev',
+		onSlideChangeEnd: function(){
+			if (mySwiper.activeIndex == 0) {
+				$('.schreiben1 .schreibtext').typed({
+				    strings: ["Brot aus einer<br>anderen<br>Perspektive.", "Unser Vitalweckerl,<br>so schroff wie der Spitzkofel."],
+				    typeSpeed: 50,
+				    backDelay: 800,
+				    startDelay: 50,
+				    backSpeed: 10,
+				});
+			}
+			if (mySwiper.activeIndex == 1) {
+				$('.schreiben3 .schreibtext').typed({
+				    strings: ["Unser Brot,<br>luftig locker wie die Lienzer Bergluft."],
+				    typeSpeed: 50,
+				    backDelay: 800,
+				    startDelay: 50,
+				    backSpeed: 10,
+				});
+			}
+			if (mySwiper.activeIndex == 2) {
+				$('.schreiben4 .schreibtext').typed({
+				    strings: ["So vielseitig wie die Lienzer Bergwiesen."],
+				    typeSpeed: 50,
+				    backDelay: 800,
+				    startDelay: 50,
+				    backSpeed: 10,
+				});
+			}
+			if (mySwiper.activeIndex == 3) {
+				$('.schreiben5 .schreibtext').typed({
+				    strings: ["Brot aus einer<br>anderen<br>Perspektive."],
+				    typeSpeed: 50,
+				    backDelay: 800,
+				    startDelay: 50,
+				    backSpeed: 10,
+				});
+				$('#imagevideo')[0].play();
+			} else {
+				$('#imagevideo')[0].pause();
+			}
+		},
+		onSlideChangeStart: function(){
+			$('html,body').animate({
+				scrollTop: $('body').offset().top
+			}, 0);
+			return false;
+		}
+    });
+
+	// VIDEO PAUSE/PLAY ON CLICK
+    $(document).on('click', 'video#imagevideo', function() {
+	    if (this.paused == false) {
+			this.pause();
+			$('.video-play-icon').fadeIn();
+		} else {
+			this.play();
+			$('.video-play-icon').fadeOut();
+		}
+	});
+	$(document).on('click', '.video-play-icon', function() {
+		var video = $(this).data('video');
+		$('#'+video).trigger('click');
+	});
+
+	// CHECK IF INLINE VIDEO SUPPORTED
+	Modernizr.addTest('inpagevideo', function () {
+		return navigator.userAgent.match(/(iPhone|iPod)/g) ? ('playsInline' in document.createElement('video')) : true;
+	});
+	if ($('.inpagevideo').length) {
+		//console.log('inpagevideo supported');
+	} else {
+		$('.swiper-slide:not(.imagevideo)').remove();
+		$('.schreiben5 .schreibtext').typed({
+		    strings: ["Brot aus einer<br>anderen<br>Perspektive."],
+		    typeSpeed: 50,
+		    backDelay: 800,
+		    startDelay: 50,
+		    backSpeed: 10,
+		});
+		$('#imagevideo')[0].play();
+		$('.pfeile').hide();
+		//console.log('inpagevideo not supported');
+	}
+
+	// MENU
+	$('.gruber-nav-trigger, .gruber-close-trigger').on('click', function(e){
+		e.preventDefault();
+		$('.gruber-nav-trigger').add($('.gruber-primary-nav')).toggleClass('nav-open');
+		$('.gruber-navbar').toggleClass('navbar-open');
+		$('.gruber-close-trigger').toggleClass('opacity0');
+		$('.gruber-logo-nav').toggleClass('opacity0');
+		$('.gruber-primary-nav li a').animate().removeClass('opacity5');
+		$('body').toggleClass('overflow-hidden menu-sichtbar');
+
+		var i = 1;
+		for (i;i<=$('.gruber-primary-nav li').length;i++) {
+			$('.gruber-primary-nav li:nth-child('+i+')').toggleClass('animated bounceInUp delay'+i);
+		}
+		i = i + 1;
+		$('.gruber-primary-nav .nav-footer a, .gruber-primary-nav .sprachen').toggleClass('animated fadeIn delay'+i);
+
+	});
+
+	$('.gruber-primary-nav li a').on('click', function(){
+		$('.gruber-nav-trigger').trigger('click');
+	});
+
+	// IMPRESSUM
+	$(document).on('click', '.impressum-trigger', function(e){
+		e.preventDefault();
+
+		$('.gruber-nav-trigger').trigger('click');
+		$('.impressum-close-trigger').toggleClass('opacity0');
+		$('#impressum').toggleClass('impressum-open');
+		$('body').toggleClass('overflow-hidden');
+	});
+
+	// IMPRESSUM SCHLIESSEN
+	$(document).on('click', '.impressum-close-trigger', function(e){
+		e.preventDefault();
+		$('.impressum-close-trigger').toggleClass('opacity0');
+		$('#impressum').toggleClass('impressum-open');
+		$('body').toggleClass('overflow-hidden');
+	});
+
+	// DATENSCHUTZ
+	$(document).on('click', '.datenschutz-trigger', function(e){
+		e.preventDefault();
+
+		$('.gruber-nav-trigger').trigger('click');
+		$('.datenschutz-close-trigger').toggleClass('opacity0');
+		$('#datenschutz').toggleClass('datenschutz-open');
+		$('body').toggleClass('overflow-hidden');
+	});
+
+	// DATENSCHUTZ SCHLIESSEN
+	$(document).on('click', '.datenschutz-close-trigger', function(e){
+		e.preventDefault();
+		$('.datenschutz-close-trigger').toggleClass('opacity0');
+		$('#datenschutz').toggleClass('datenschutz-open');
+		$('body').toggleClass('overflow-hidden');
+	});
+
+	// SCROLL
+	$(function() {
+		$('a[href*=\\#]:not([href=\\#])').click(function() {
+			if ($(this).hasClass('oeffnungszeiten')) { } else {
+			    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			    	var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+					if (target.length) {
+			        	$('html,body').animate({
+							scrollTop: target.offset().top
+			        	}, 2000);
+						return false;
+			      	}
+			    }
+		    }
+	  	});
+	});
+
+    // WOW
+    new WOW({
+	    mobile: false
+    }).init();
+
+    // LOGO AUSBLENDEN
+    $(window).scroll(function() {
+	    if ($('.startseite').length) {
+		    if (/MSIE 9/i.test(navigator.userAgent) || /rv:11.0/i.test(navigator.userAgent) || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+			    var scrollTopHeader = $('.gruber-header').height();
+		    } else {
+			    var scrollTopHeader = 500;
+		    }
+
+		    if ($(document).scrollTop() > scrollTopHeader) {
+			    $('header').addClass('hidden');
+			    $('#awwwards').addClass('awwwards-small');
+			} else {
+			    $('header').removeClass('hidden');
+			    $('#awwwards').removeClass('awwwards-small');
+		    }
+		} else {
+	    	if ($(document).scrollTop() > 150) {
+		    	$('body header').addClass('hidden');
+			} else {
+			    $('header').removeClass('hidden');
+		    }
+		}
+	});
+
+	// BG
+	//$('.baecker-footer, .follow-footer, .gruber-nav-trigger').midnight();
+
+	// SORTIMENT (KATEGORIEN)
+	$(document).on('click', '.sortiment a:not(.kategorie-aktiv)', function(e) {
+		e.preventDefault();
+		$('.sortiment a').removeClass('kategorie-aktiv');
+		$(this).addClass('kategorie-aktiv');
+
+		var link = $(this).attr('href');
+		var kategorie = $(this).data('kategorie');
+		$('#sortiment-auswahl-'+kategorie).load(link+' .detail');
+
+		//history.pushState({page:link}, null, link);
+
+		setTimeout(function() {
+        	$('html,body').animate({
+				scrollTop: $('#sortiment-auswahl-'+kategorie).offset().top
+        	}, 600);
+        }, 500);
+	});
+	$(document).on('click', '.kategorie-aktiv', function(e) {
+		e.preventDefault();
+		$(this).removeClass('kategorie-aktiv');
+		$('.kategorie-detail').html('');
+	});
+
+	// SORTIMENT (PRODUKTE)
+	$(document).on('click', '.produkt-box a.produkt-zeigen', function(e) {
+		e.preventDefault();
+		var $this = $(this);
+		var kategorie = $this.parent().parent().parent().parent().parent().parent().parent();
+
+		var link = $(this).attr('href');
+
+		if ($(window).width() > 767) {
+			var next = $(this).data('ziel');
+			next = kategorie.find(next);
+
+			offeneSchliessen();
+		} else {
+			var next = $this.parent().next('.produkt-mehr-xs');
+
+			if (kategorie.find('.produkt-mehr.opacity-100').length > 4) {
+				offeneSchliessen();
+			}
+		}
+
+       	if($this.is(':contains("mehr erfahren")')) {
+		setTimeout(function() {
+			next.load(link+' .detail').animate({
+				'max-height': '9999px',
+			}, 1000).addClass('opacity-100');
+
+        	$('html,body').animate({
+				scrollTop: next.offset().top - $('header').outerHeight() * 2 - 20
+        	}, 1500);
+        	//console.log($('header').outerHeight());
+        	$this.addClass('produkt-aktiv');
+
+        	$this.find('.button').html('schließen');
+        }, 500);
+        }
+
+		//history.pushState({page:link}, null, link);
+
+		function offeneSchliessen(){
+			$('.produkt-aktiv').find('.button').html('mehr erfahren');
+			$('.produkt-aktiv').removeClass('produkt-aktiv');
+
+			kategorie.find('.produkt-mehr').animate({
+				'max-height': 0,
+			}, 200).removeClass('opacity-100');
+
+			setTimeout(function() {
+				kategorie.find('.produkt-mehr').html('');
+	        }, 250);
+		}
+	});
+
+	// PRODUKT SCHLIESSEN
+	$(document).on('click', '.produkt-close-trigger, .produkt-aktiv', function(e) {
+		e.preventDefault();
+		var produktAktiv = $('.produkt-aktiv');
+		var produktMehr = $('.produkt-mehr');
+		produktAktiv.find('.button').html('mehr erfahren');
+		produktAktiv.removeClass('produkt-aktiv');
+		produktMehr.animate({
+			'max-height': 0,
+		}, 1000);
+		setTimeout(function() {
+			produktMehr.html('').removeClass('opacity-100');
+        }, 1000);
+
+        /*$('html,body').animate({
+			scrollTop: $('#produkt-uebersicht').offset().top
+        }, 600);*/
+	});
+
+	// PRODUKT GENUSSTIPP ZEIGEN
+	$(document).on('click', '.genusstipp-trigger', function(e) {
+		e.preventDefault();
+		$(this).toggleClass('genusstipp-aktiv');
+		$('.genusstipp').toggleClass('genusstipp-aktiv');
+	});
+
+	// PRODUKT GENUSSTIPP AUSBLENDEN
+	$(document).on('click', '.genusstipp-trigger-close', function(e){
+		e.preventDefault();
+		$('.genusstipp-aktiv').removeClass('genusstipp-aktiv');
+	});
+
+
+
+	// HÖCHSTES ELEMENT
+	/*$(document).bind('DOMNodeInserted', function(e) {
+	var elementHeights = $('.produkt-box .text-padding').map(function() {
+    	return $(this).height();
+	}).get();
+
+	var maxHeight = Math.max.apply(null, elementHeights);
+
+	$('.produkt-box .text-padding').height(maxHeight);
+	});*/
+
+	// WEITERSAGEN
+	$(document).on('click', '.weitersagen', function(e){
+		e.preventDefault();
+		var url = $(this).data('url');
+		window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
+		    'facebook-share-dialog',
+		    'width=800,height=600'
+		);
+		return false;
+	});
+
+	// OEFFNUNGSZEITN
+	$(document).on('click', '.oeffnungszeiten:not(.normal)', function(e) {
+		e.preventDefault();
+		$($('.oeffnungszeiten-aktiv').attr('href')).hide();
+		$('.oeffnungszeiten-aktiv').removeClass('oeffnungszeiten-aktiv');
+
+		$(this).addClass('oeffnungszeiten-aktiv');
+		$($(this).attr('href')).toggleClass('ausgeklappt').fadeIn();
+	});
+
+	// ZUTATENLISTE
+	$(document).on('click', '.zutaten', function(e) {
+		e.preventDefault();
+		$(this).addClass('zutaten-aktiv');
+		$($(this).attr('href')).toggleClass('ausgeklappt').fadeIn();
+	});
+	$(document).on('click', '.zutaten-aktiv', function(e) {
+		e.preventDefault();
+		$(this).removeClass('zutaten-aktiv');
+		$($(this).attr('href')).toggleClass('ausgeklappt').fadeOut();
+	});
+
+	/*$('.quicklink-box').on('click', function(event) {
+		event.preventDefault();
+		$('.aktiviert').toggleClass('aktiviert');
+
+		if ($(this).hasClass('aktiviert')) {} else {
+			$(this).toggleClass('aktiviert');
+		}
+		$('.ausgeklappt').removeClass('ausgeklappt').slideToggle();
+
+		$($(this).attr('href')).toggleClass('ausgeklappt').slideToggle();
+
+		setTimeout(function() {
+		    $('html, body').stop().animate({
+	            scrollTop: $('.ausgeklappt').offset().top - navHeight
+	        }, 1500, 'easeInOutExpo');
+        }, 1000);
+	});
+
+	$('.zusatzbox .close-trigger').on('click', function(event){
+		$('.ausgeklappt').removeClass('ausgeklappt').slideToggle();
+
+	    $('html, body').stop().animate({
+	        scrollTop: $('#news').offset().top - navHeight
+	    }, 1500, 'easeInOutExpo');
+	});*/
+
+    // SVG
+	$('img.svg').each(function(){
+        var $img = $(this);
+        var imgID = $img.attr('id');
+        var imgClass = $img.attr('class');
+        var imgURL = $img.attr('src');
+
+        $.get(imgURL, function(data) {
+            var $svg = $(data).find('svg');
+            if(typeof imgID !== 'undefined') {
+                $svg = $svg.attr('id', imgID);
+            }
+            if(typeof imgClass !== 'undefined') {
+                $svg = $svg.attr('class', imgClass+' replaced-svg');
+            }
+            if(!$svg.attr('viewBox')){
+	            $svg.attr('viewBox', ('0 0 '
+	            + $svg.attr('width').match(/[0-9]+\.[0-9]*/) + ' '
+	            + $svg.attr('height').match(/[0-9]+\.[0-9]*/)));
+	        }
+
+            $svg = $svg.removeAttr('xmlns:a');
+
+            $img.replaceWith($svg);
+        }, 'xml');
+    });
+
+	// SCROLL SPEED
+	$.fn.moveIt = function(){
+	  var $window = $(window);
+	  var instances = [];
+
+	  $(this).each(function(){
+	    instances.push(new moveItItem($(this)));
+	  });
+
+	  window.onscroll = function(){
+	    var scrollTop = $window.scrollTop();
+	    instances.forEach(function(inst){
+		    if ($(window).width() > 1024) {
+				inst.update(scrollTop);
+	      	} else {
+				$('.no-touch [data-scroll-speed]').removeAttr('style');
+	      	}
+	    });
+	  }
+	}
+
+	var moveItItem = function(el){
+	  this.el = $(el);
+	  this.speed = parseInt(this.el.attr('data-scroll-speed'));
+	};
+
+	moveItItem.prototype.update = function(scrollTop){
+	  var pos = scrollTop / this.speed;
+	  this.el.css('transform', 'translateY(' + -pos + 'px)');
+	};
+
+	$(function(){
+		if ($(window).width() > 1024) {
+			$('.no-touch [data-scroll-speed]').moveIt();
+		} else {
+			$('.no-touch [data-scroll-speed]').removeAttr('style');
+		}
+	});
+
+	// BEREICH HOVER
+		    $('.bereich').hover(function() {
+		        $(this).on('mousemove', function (e) {
+		            //console.log('moving:', e.pageX, e.pageY);
+
+		            var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+				    var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
+				    var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+				    var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+				    var is_opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
+				    if ((is_chrome)&&(is_safari)) {is_safari=false;}
+				    if ((is_chrome)&&(is_opera)) {is_chrome=false;}
+
+					//if (is_safari || is_firefox) {
+
+			            var elHeight = $(this).height();
+			            var posLeft = e.pageX - $(this).offset().left - $(this).find('.circle-follow').innerWidth() / 2;
+			            var posTop = e.pageY - $(this).offset().top - 150;
+
+			            /*if (posLeft < 0) {
+					        posLeft = 0
+				        } else {
+					        posLeft = posLeft
+			            }
+			            if (posTop < 0) {
+					        posTop = 0
+				        } else if (posTop > elHeight) {
+					        posTop = elHeight
+					    } else {
+					        posTop = posTop
+			            }*/
+
+			            //console.log('koordinaten:', posLeft, posTop);
+			            $(this).find('.circle-follow').css({
+				            left: posLeft,
+			                top: posTop
+			            });
+
+		            //}
+
+
+		        });
+		    });
+
+});
+
+// IE BLEND MODE FALLBACK
+(function () {
+	var will_it_blend = function () {
+      var arca = document.createElement("div");
+      if ("backgroundBlendMode" in window.getComputedStyle(arca)) {
+        document.body.className += " cssBackgroundBlendMode";
+      } else {
+         document.body.className += " noCssBackgroundBlendMode";
+      }
+    };
+
+    will_it_blend();
+}());
+
+// INTRO ANIMATION
+function introAnimation(){
+	$('.intro').fadeOut();
+	if ($(window).width() > 1024) {
+		$('.pfeile').fadeIn();
+	}
+	$('.follow-footer, .baecker-footer').fadeIn();
+	$('header').removeClass('ausgeblendet');
+	$('.home').removeClass('overflow-hidden');
+
+	// INTRO SCHREIBEN
+	$('.schreiben1 span').typed({
+	    strings: ["Brot aus einer<br>anderen<br>Perspektive.", "Unser Vitalweckerl,<br>so schroff wie der Spitzkofel."],
+	    typeSpeed: 50,
+	    backDelay: 800,
+	    startDelay: 1000,
+	    backSpeed: 10,
+	});
+}
