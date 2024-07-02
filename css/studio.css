@@ -60,6 +60,65 @@ nav a:hover {
   display: flex;
   gap: 10px;
 }
+
+.hamburger {
+  color: black;
+  background-color: var(--snow);
+  padding: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+.activeBurger {
+  & :nth-child(1) {
+    transform: translateY(12px) translateX(5px) rotate(44deg);
+  }
+
+  & :nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  & :nth-child(2) {
+    transform: rotate(-45deg);
+  }
+}
+
+/* End of navigation */
+/* Aside section */
+.asideMenU {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 3;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  right: 100%;
+}
+
+.activeAside {
+  right: 0 !important;
+}
+
+.asideLinks {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+  font-size: 20px;
+
+  & a {
+    text-decoration: none;
+    color: var(--fadedWhite);
+    text-decoration: none;
+  }
+
+  & a:hover {
+    color: var(--snow);
+  }
+}
 /* End of navigation */
 
 .heroSection {
@@ -249,10 +308,37 @@ nav a:hover {
 }
 
 /* Media Query */
+
+@media (max-width: 1160px) {
+  .links {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .aboutCard {
+    height: auto;
+  }
+}
+
 @media (max-width: 650px) {
   nav {
     justify-content: space-between;
     padding: 20px 40px;
+
+    & .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 50px;
+      background-color: black !important;
+
+      & > div {
+        height: 1px;
+        width: 50px;
+        background-color: #fff;
+      }
+    }
   }
 
   nav h3 {

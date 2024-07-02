@@ -59,6 +59,28 @@ nav a:hover {
   color: var(--snow) !important;
 }
 
+.hamburger {
+  color: black;
+  background-color: var(--snow);
+  padding: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+.activeBurger {
+  & :nth-child(1) {
+    transform: translateY(12px) translateX(5px) rotate(44deg);
+  }
+
+  & :nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  & :nth-child(2) {
+    transform: rotate(-45deg);
+  }
+}
+
 /* Aside section */
 .asideMenU {
   width: 100%;
@@ -89,6 +111,10 @@ nav a:hover {
   & a:hover {
     color: var(--snow);
   }
+}
+
+.activeAside {
+  right: 0 !important;
 }
 
 /* End of navigation */
@@ -239,10 +265,39 @@ nav a:hover {
 }
 
 /* Media Query */
+@media (max-width: 1160px) {
+  .links {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .projectHolder {
+    justify-content: flex-start;
+    & .myProjects {
+      width: 350px !important;
+    }
+  }
+}
+
 @media (max-width: 650px) {
   nav {
     justify-content: space-between;
     padding: 20px 40px;
+
+    & .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 50px;
+      background-color: black !important;
+
+      & > div {
+        height: 1px;
+        width: 50px;
+        background-color: #fff;
+      }
+    }
   }
 
   nav h3 {

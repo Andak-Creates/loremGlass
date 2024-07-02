@@ -64,6 +64,21 @@ nav a:hover {
   background-color: var(--snow);
   padding: 5px;
   cursor: pointer;
+  display: none;
+}
+
+.activeBurger {
+  & :nth-child(1) {
+    transform: translateY(12px) translateX(5px) rotate(44deg);
+  }
+
+  & :nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  & :nth-child(2) {
+    transform: rotate(-45deg);
+  }
 }
 
 /* End of navigation */
@@ -79,6 +94,10 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   right: 100%;
+}
+
+.activeAside {
+  right: 0 !important;
 }
 
 .asideLinks {
@@ -209,7 +228,7 @@ nav a:hover {
   background-image: url("https://uploads-ssl.webflow.com/60b280b08e7b7a3f70e3e16d/60b282df84c6fccb1bdc2d62_tile-texture.jpg");
 }
 
-.featuredWorks h2 {
+.featuredWorks > h2 {
   font-size: 35px;
   letter-spacing: 2px;
 }
@@ -240,7 +259,7 @@ nav a:hover {
   top: 5%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 30px !important;
+  font-size: 30px;
 }
 
 /* .headRight {
@@ -428,18 +447,63 @@ nav a:hover {
 
 /* Media Query */
 
+@media (max-width: 1160px) {
+  .links {
+    gap: 50px;
+  }
+
+  /* Welcome Section */
+  .welcome {
+    padding: 80px 40px;
+  }
+  .steps {
+    width: 100%;
+  }
+  .stepCard {
+    height: 380px;
+    width: 500px;
+  }
+
+  /* Featured Works */
+  .work {
+    & .workHeader {
+      padding: 10px 50px;
+      font-size: 25px;
+      top: 0;
+    }
+  }
+
+  /* Associate section */
+  .associate {
+    height: auto;
+  }
+}
+
 @media (max-width: 650px) {
   nav {
     justify-content: space-between;
     padding: 20px 40px;
   }
-
   nav h3 {
     font-size: 20px;
   }
   .links,
   .socialLinks {
     display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 50px;
+    background-color: black !important;
+
+    & > div {
+      height: 1px;
+      width: 50px;
+      background-color: #fff;
+    }
   }
   /* End of Nav */
 
@@ -515,6 +579,8 @@ nav a:hover {
       /* box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset; */
       backdrop-filter: blur(2px);
       color: black;
+
+      /* flex-wrap: wrap-reverse; */
 
       & div > p {
         font-size: 15px;

@@ -60,6 +60,28 @@ nav a:hover {
   gap: 10px;
 }
 
+.hamburger {
+  color: black;
+  background-color: var(--snow);
+  padding: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+.activeBurger {
+  & :nth-child(1) {
+    transform: translateY(12px) translateX(5px) rotate(44deg);
+  }
+
+  & :nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  & :nth-child(2) {
+    transform: rotate(-45deg);
+  }
+}
+
 /* Aside section */
 .asideMenU {
   width: 100%;
@@ -90,6 +112,10 @@ nav a:hover {
   & a:hover {
     color: var(--snow);
   }
+}
+
+.activeAside {
+  right: 0 !important;
 }
 
 /* End of navigation */
@@ -247,7 +273,8 @@ form button {
   background-color: white;
   border-radius: 10px;
   border-top: 5px solid black;
-  /* border-top: 5px solid black; */
+  border-bottom: 5px solid black;
+  background-color: whitesmoke;
 }
 
 .address {
@@ -264,7 +291,7 @@ form button {
   height: 80px;
   width: 80px;
   border-radius: 50%;
-  background-color: whitesmoke;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -329,11 +356,47 @@ form button {
 }
 
 /* Media Query */
+@media (max-width: 1160px) {
+  .links {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .compHolder {
+    padding: 0;
+
+    & .comp {
+      width: 40%;
+      padding: 40px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
 @media (max-width: 650px) {
   /* Nav section */
   nav {
     justify-content: space-between;
     padding: 20px 40px;
+
+    & .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 50px;
+      background-color: black !important;
+
+      & > div {
+        height: 1px;
+        width: 50px;
+        background-color: #fff;
+      }
+    }
   }
 
   nav h3 {
@@ -396,7 +459,6 @@ form button {
     padding: 0;
 
     & .comp {
-      border: 1px solid black;
       width: 100%;
     }
   }
