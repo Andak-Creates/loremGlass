@@ -94,6 +94,20 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   right: 100%;
+
+  & .socialAsideLinks {
+    margin-top: 30px;
+    font-size: 30px;
+    display: flex;
+    gap: 20px;
+    & a {
+      color: rgba(255, 255, 255, 0.5);
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
 }
 
 .activeAside {
@@ -564,6 +578,7 @@ nav a:hover {
       z-index: -1;
       object-fit: cover;
       filter: brightness(70%);
+      z-index: 5;
     }
 
     .workHeader {
@@ -619,5 +634,25 @@ nav a:hover {
   }
   .featuredWorks {
     padding: 20px 40px;
+  }
+
+  /* Footer section */
+  .vision {
+    & h2 {
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+  }
+
+  .PTC {
+    flex-wrap: wrap;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footLinks {
+    font-size: 30px;
+    gap: 30px;
   }
 }

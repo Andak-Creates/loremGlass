@@ -130,11 +130,11 @@
   & .btn {
     background-color: rgba(255, 255, 255, 0.5);
     color: rgba(0, 0, 0, 0.7);
-    border: 2px solid rgba(0, 0, 0, 0.6);
     margin: 0 0.25rem;
-    padding: 0.75rem;
+    padding: 5px;
     border-radius: 50%;
     cursor: pointer;
+    font-size: 30px;
 
     &:hover {
       background-color: rgba(255, 255, 255, 0.3);
