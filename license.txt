@@ -1,0 +1,52 @@
+------------------------------------------------------------
+GLASSCOMPANY WEBSITE TEMPLATE
+Copyright © 2025 Kelvin Andak
+------------------------------------------------------------
+
+LICENSE TYPE: Single Commercial Use License
+
+This license grants the purchaser the right to use the GlassCompany
+HTML template in one (1) single end project, either for personal
+or commercial use.
+
+------------------------------------------------------------
+PERMITTED USES
+------------------------------------------------------------
+✅ You MAY:
+- Use this template for ONE website (personal or client project)
+- Modify and customize the design and code
+- Use it in a commercial project for a client
+- Host or deploy the final project on your chosen platform
+- Keep backups for personal use
+
+------------------------------------------------------------
+PROHIBITED USES
+------------------------------------------------------------
+❌ You MAY NOT:
+- Resell, redistribute, or repackage this template as-is or with minor changes
+- Upload or share it publicly (including GitHub, marketplaces, or forums)
+- Claim design or code as your own original work
+- Use it in multiple end products without purchasing additional licenses
+- Include it in SaaS or "website builder" tools
+
+------------------------------------------------------------
+CREDITS
+------------------------------------------------------------
+Developed by: Kelvin Andak  
+Contact: kelvinandak@gmail.com  
+Created: 2025  
+Website: (optional link if you have one)
+
+Icons provided by Bootstrap Icons (MIT License).  
+Images and videos are placeholders and should be replaced with your own assets.
+
+------------------------------------------------------------
+DISCLAIMER
+------------------------------------------------------------
+This template is provided "as is" without warranty of any kind,
+either expressed or implied. The author is not liable for any
+damages arising from the use of this software.
+
+------------------------------------------------------------
+END OF LICENSE
+------------------------------------------------------------

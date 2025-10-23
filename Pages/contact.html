@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Modern and clean glass company website template. Fully responsive HTML5 and CSS3 design for studios, construction, and manufacturing businesses."
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="/css/contact.css" />
-    <title>Contact</title>
+    <title>Contact Us | Company Name</title>
   </head>
   <body>
     <div class="body">
@@ -38,9 +42,9 @@
       <aside class="asideMenU">
         <div class="asideLinks">
           <a href="/index.html" class="navLink">Home</a>
-          <a href="/Pages/studio.html" class="navLink">Studio</a>
-          <a href="/Pages/contact.html" class="navLink contact">Contact</a>
-          <a href="/Pages/portfolio.html" class="navLink">Portfolio</a>
+          <a href="/pages/studio.html" class="navLink">Studio</a>
+          <a href="/pages/contact.html" class="navLink contact">Contact</a>
+          <a href="/pages/portfolio.html" class="navLink">Portfolio</a>
         </div>
 
         <div class="socialAsideLinks">
@@ -52,7 +56,7 @@
       <div class="innerBody">
         <!-- Top section -->
         <div class="topSection">
-          <video loop autoplay>
+          <video loop autoplay muted playsinline>
             <source
               src="https://media.istockphoto.com/id/900994004/video/old-rare-vintage-telephone.mp4?s=mp4-640x640-is&k=20&c=rIImzIGUjOWT4f0tNwhbwP1iocPKrtBIgtn2JZd9OBc="
               type="video/mp4"
@@ -79,17 +83,17 @@
             <div class="labelHolder">
               <label name="firstName"
                 ><small>First Name</small><br />
-                <input type="text" name="firstName" />
+                <input type="text" name="firstName" required />
               </label>
 
               <label name="lastName"
                 ><small>Last Name</small><br />
-                <input type="text" name="lastName" />
+                <input type="text" name="lastName" required />
               </label>
             </div>
             <label name="Email"
               ><small>Email</small><br />
-              <input class="email" type="email" name="emailSectionl" />
+              <input class="email" type="email" name="email" required />
             </label>
 
             <textarea name="" id="" cols="30" rows="5"></textarea>
@@ -113,8 +117,7 @@
             <div class="comp telephone">
               <div class="icons"><i class="bi bi-telephone"></i></div>
               <p>TELEPHONE</p>
-              <a tel="08119540296">+234-811-954-0296</a>
-              <a tel="08101432389">+234-810-143-2389</a>
+              <a href="tel:+2348119540296">+234-811-954-0296</a>
             </div>
             <div class="comp address">
               <div class="icons"><i class="bi bi-geo-alt"></i></div>
